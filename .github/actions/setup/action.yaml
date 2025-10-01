@@ -1,0 +1,6 @@
+name: "Setup OS"
+description: "Installs build dependencies"
+runs:
+  using: "composite"
+  steps:
+    - uses: ./.github/actions/setup/go

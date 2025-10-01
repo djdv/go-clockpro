@@ -1,0 +1,11 @@
+name: "Go tests"
+description: "Runs the standard Golang test suite"
+runs:
+  using: "composite"
+  steps:
+    - shell: pwsh
+      run: |
+        $commandPath = Join-Path . ...
+        go test ${commandPath}
+        go test -v -cover -bench . ${commandPath}
+        go test -tags="debugging" -race -v -cover -bench . ${commandPath}
